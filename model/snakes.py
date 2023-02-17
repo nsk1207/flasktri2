@@ -15,7 +15,7 @@ from sqlalchemy.exc import IntegrityError
 
 # Define the Post class to manage actions in 'posts' table,  with a relationship to 'users' table
 class Post(db.Model):
-    __tablename__ = 'users'
+    __tablename__ = 'worm'
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
     image = db.Column(db.String, unique=False)
@@ -70,8 +70,8 @@ class Post(db.Model):
 # -- a.) db.Model is like an inner layer of the onion in ORM
 # -- b.) User represents data we want to store, something that is built on db.Model
 # -- c.) SQLAlchemy ORM is layer on top of SQLAlchemy Core, then SQLAlchemy engine, SQL
-class User(db.Model):
-    __tablename__ = 'users'  # table name is plural, class name is singular
+class Snakes(db.Model):
+    __tablename__ = 'Snakes'  # table name is plural, class name is singular
 
     # Define the User schema with "vars" from object
     id = db.Column(db.Integer, primary_key=True)
@@ -192,18 +192,18 @@ def initUsers():
         
          db.create_all()
          """Tester data for table"""
-         u1 = User(name='sabine', uid='sab', snakescore = 10)
+         u1 = Snakes(name='sabine', uid='sab', snakescore = 10)
        
 
-         users = [u1]
+         snakes= [u1]
 
          """Builds sample user/note(s) data"""
-         for user in users:
+         for snake in snakes:
              try:
-                 user.posts.append(Post(id=user.id, image='ncs_logo.png', snakescore= user.snakescore))
+                 snake.posts.append(Post(id=snake.id, image='ncs_logo.png', snakescore= user.snakescore))
                  '''add user/post data to table'''
-                 user.create()
+                 snake.create()
              except IntegrityError:
                  '''fails with bad or duplicate data'''
                  db.session.remove()
-                 print(f"Duplicate email, or error: {user.uid}")
+                 print(f"Duplicate email, or error: {snake.uid}")
