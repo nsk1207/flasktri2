@@ -447,7 +447,7 @@ class User(db.Model):
 def initUsers():
     with app.app_context():
         """Create database and tables"""
-        db.init_app(app)
+     
         db.create_all()
         """Tester data for table"""
         u1 = User(question='what is a cpu?', correctAnswer='central processing unit', incorrectAnswer1 = 'coolant protection unit', incorrectAnswer2 = 'unit processor', incorrectAnswer3 = 'man idk')

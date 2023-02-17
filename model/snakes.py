@@ -15,7 +15,7 @@ from sqlalchemy.exc import IntegrityError
 
 # Define the Post class to manage actions in 'posts' table,  with a relationship to 'users' table
 class Post(db.Model):
-    __tablename__ = 'posts'
+    __tablename__ = 'users'
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
     image = db.Column(db.String, unique=False)
@@ -189,7 +189,7 @@ class User(db.Model):
 def initUsers():
      with app.app_context():
          """Create database and tables"""
-         db.init_app(app)
+        
          db.create_all()
          """Tester data for table"""
          u1 = User(name='sabine', uid='sab', snakescore = 10)
