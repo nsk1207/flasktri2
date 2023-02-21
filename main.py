@@ -5,22 +5,25 @@ from flask import render_template  # import render_template from "public" flask 
 
 # import "packages" from "this" project
 from __init__ import app, db # Definitions initialization
-from model.jokes import initJokes
-from model.QATrivia import initUsers
+
+from model.snakes import initSnakes
+from model.wordles import initWordles
 
 # setup APIs
-from api.covid import covid_api # Blueprint import api definition
-from api.joke import joke_api # Blueprint import api definition
+ # Blueprint import api definition
 from api.app import user_api
+from api.wordle import wordle_api
+from api.snake import snake_api
 #from api.user import user_api # Blueprint import api definition
 
 # setup App pages
 from projects.projects import app_projects # Blueprint directory import projects definition
 
 # register URIs
-app.register_blueprint(joke_api) # register api routes
-app.register_blueprint(covid_api) # register api routes
+ # register api routes
 app.register_blueprint(user_api)
+app.register_blueprint(snake_api)
+app.register_blueprint(wordle_api)
 #app.register_blueprint(user_api) # register api routes
 app.register_blueprint(app_projects) # register app pages
 
@@ -39,9 +42,10 @@ def stub():
 
 @app.before_first_request
 def activate_job():
-    initJokes()
-    initUsers()
-    initUsers2()
+
+    initSnakes()
+    initWordles()
+  
 
 # this runs the application on the development server
 if __name__ == "__main__":

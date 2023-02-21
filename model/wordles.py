@@ -113,8 +113,8 @@ class Wordle(db.Model):
 # Builds working data for testing
 def initWordles():
         """Create database and tables"""
-        db.create_all()
-        """Tester data for table"""
+with app.app_context():
+        
         u1 = Wordle(name="Thomas Edison", score=12, pin="qwerty123")
         u2 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
         u3 = Wordle(name="Karl Giant", score=10, pin="i_am-the-f4th3r")
