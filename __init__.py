@@ -3,6 +3,7 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+
 """
 These object can be used throughout project.
 1.) Objects from this file can be included in many blueprints

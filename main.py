@@ -9,6 +9,7 @@ from __init__ import app, db # Definitions initialization
 from model.snakes import initSnakes
 from model.wordles import initWordles
 
+
 # setup APIs
  # Blueprint import api definition
 from api.app import user_api
@@ -22,8 +23,9 @@ from projects.projects import app_projects # Blueprint directory import projects
 # register URIs
  # register api routes
 app.register_blueprint(user_api)
-app.register_blueprint(snake_api)
 app.register_blueprint(wordle_api)
+app.register_blueprint(snake_api)
+
 #app.register_blueprint(user_api) # register api routes
 app.register_blueprint(app_projects) # register app pages
 
@@ -46,9 +48,10 @@ def activate_job():
     initSnakes()
     initWordles()
   
+  
 
 # this runs the application on the development server
 if __name__ == "__main__":
     # change name for testing
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///volumes/sqlite.db'
+
     app.run(debug=True, host="0.0.0.0", port="8086")
