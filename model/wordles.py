@@ -120,11 +120,11 @@ with app.app_context():
         
         
         
-        w1 = Wordle(name="Thomas Edison", score=12, pin="qwerty123")
-        w2 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
-        w3 = Wordle(name="Karl Giant", score=10, pin="i_am-the-f4th3r")
         
-        wordles = [w1, w2, w3]
+        w1 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
+        w2 = Wordle(name="Karl Giant", score=10, pin="i_am-the-f4th3r")
+        
+        wordles = [w1, w2]
         #Builds sample wordles data
         for wordle in wordles:
             try:
