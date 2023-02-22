@@ -114,7 +114,6 @@ class Wordle(db.Model):
 def initWordles():
         """Create database and tables"""
 with app.app_context():
-       
         db.create_all()
         
         u1 = Wordle(name="Thomas Edison", score=12, pin="qwerty123")
