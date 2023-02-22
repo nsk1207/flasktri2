@@ -115,6 +115,7 @@ def initWordles():
         """Create database and tables"""
 with app.app_context():
         db.create_all()
+        db.init_app(app)
         
         u1 = Wordle(name="Thomas Edison", score=12, pin="qwerty123")
         u2 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
