@@ -10,11 +10,13 @@ from model.snakes import initSnakes
 from model.wordles import initWordles
 from model.QATrivia import initQAs
 
+
 # setup APIs
  # Blueprint import api definition
 from api.wordle import wordle_api
 from api.snake import snake_api
 from api.trivia import trivia_api
+
 #from api.user import user_api # Blueprint import api definition
 
 # setup App pages
@@ -25,6 +27,7 @@ from projects.projects import app_projects # Blueprint directory import projects
 app.register_blueprint(wordle_api)
 app.register_blueprint(snake_api)
 app.register_blueprint(trivia_api)
+
 
 #app.register_blueprint(user_api) # register api routes
 app.register_blueprint(app_projects) # register app pages
