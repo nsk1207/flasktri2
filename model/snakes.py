@@ -140,8 +140,9 @@ def initSnakes():
          """Tester data for table"""
          s1 = Snakes(name='sabine', uid='sab', snakescore = 10)
          s2 = Snakes(name='xxx', uid='xxx', snakescore = 20)
+         s3 = Snakes(name="bob", uid="bobby", snakescore=30)
 
-         snakes = [s1, s2]
+         snakes = [s1, s2, s3]
 
          """Builds sample user/note(s) data"""
          for snake in snakes:
