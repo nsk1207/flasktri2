@@ -49,6 +49,10 @@ def activate_job():
     initQAs()
   
 
+db.init_app(app)
+with app.app_context(): 
+    db.create_all()
+
 # this runs the application on the development server
 if __name__ == "__main__":
     # change name for testing
