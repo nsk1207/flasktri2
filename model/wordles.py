@@ -112,21 +112,21 @@ class Wordle(db.Model):
 
 # Builds working data for testing
 def initWordles():
-        """Create database and tables"""
-with app.app_context():
-        db.init_app(app)
-        db.create_all()
+    with app.app_context():
+         """Create database and tables"""
+        
+    db.create_all()
 
         
         
         
         
-        w1 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
-        w2 = Wordle(name="Karl Giant", score=10, pin="i_am-the-f4th3r")
+    w1 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
+    w2 = Wordle(name="Karl Giant", score=10, pin="i_am-the-f4th3r")
         
-        wordles = [w1, w2]
+    wordles = [w1, w2]
         #Builds sample wordles data
-        for wordle in wordles:
+    for wordle in wordles:
             try:
                 wordle.create()
             except IntegrityError:
