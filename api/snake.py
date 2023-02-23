@@ -32,7 +32,7 @@ class UserAPI:
             
 
             ''' #1: Key code block, setup USER OBJECT '''
-            so = Snake(name=name, 
+            so = Snakes(name=name, 
                       uid=uid,
                       snakescore=snakescore)
             

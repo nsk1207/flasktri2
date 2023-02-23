@@ -133,23 +133,23 @@ class Snakes(db.Model):
 
 # Builds working data for testing
 def initSnakes():
-     with app.app_context():
-         """Create database and tables"""
+    with app.app_context():
         
-         db.create_all()
-         """Tester data for table"""
-         s1 = Snakes(name='sabine', uid='sab', snakescore = 10)
-         s2 = Snakes(name='xxx', uid='xxx', snakescore = 20)
-         s3 = Snakes(name="bob", uid="bobby", snakescore=30)
+        
+        db.create_all()
+    
+        s1 = Snakes(name='sabine', uid='sab', snakescore = 10)
+        s2 = Snakes(name='xxx', uid='xxx', snakescore = 20)
+        s3 = Snakes(name="bob", uid="bobby", snakescore=30)
 
-         snakes = [s1, s2, s3]
+        snakes = [s1, s2, s3]
 
-         """Builds sample user/note(s) data"""
-         for snake in snakes:
-             try:
+        
+        for snake in snakes:
+            try:
                  '''add user/post data to table'''
                  snake.create()
-             except IntegrityError:
+            except IntegrityError:
                  '''fails with bad or duplicate data'''
                  db.session.remove()
                  print(f"Duplicate email, or error: {snake.uid}")
