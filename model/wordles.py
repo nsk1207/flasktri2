@@ -1,7 +1,7 @@
 """ database dependencies to support sqliteDB examples """
 from random import randrange
-from datetime import date
-import os, base64
+
+
 import json
 
 from __init__ import app, db
@@ -112,16 +112,21 @@ class Wordle(db.Model):
 
 # Builds working data for testing
 def initWordles():
-        """Create database and tables"""
-        db.create_all()
-        """Tester data for table"""
-        u1 = Wordle(name="Thomas Edison", score=12, pin="qwerty123")
-        u2 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
-        u3 = Wordle(name="Karl Giant", score=10, pin="i_am-the-f4th3r")
+    with app.app_context():
+         """Create database and tables"""
         
-        wordles = [u1, u2, u3]
+    db.create_all()
+
+        
+        
+        
+        
+    w1 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
+    w2 = Wordle(name="Karl Giant", score=10, pin="i_am-the-f4th3r")
+        
+    wordles = [w1, w2]
         #Builds sample wordles data
-        for wordle in wordles:
+    for wordle in wordles:
             try:
                 wordle.create()
             except IntegrityError:
