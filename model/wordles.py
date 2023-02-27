@@ -1,7 +1,7 @@
 """ database dependencies to support sqliteDB examples """
 from random import randrange
-
-
+from datetime import date
+import os, base64
 import json
 
 from __init__ import app, db
@@ -21,15 +21,15 @@ class Wordle(db.Model):
     # Define the User schema with "vars" from object
     id = db.Column(db.Integer, primary_key=True)
     _name = db.Column(db.String(255), unique=False, nullable=False)
-    _pin = db.Column(db.String(255), unique=False, nullable=False)
     #_uid = db.Column(db.String(255), unique=True, nullable=False)
     _score = db.Column(db.String(255), unique=False, nullable=False)
+    _pin = db.Column(db.String(255), unique=False, nullable=False)
 
     # constructor of a User object, initializes the instance variables within object (self) 
     def __init__(self, name, score, pin):
         self._name = name
-        self._pin = pin
         self._score = score
+        self._pin = pin
     
     #here's the name getter
     @property
@@ -41,24 +41,26 @@ class Wordle(db.Model):
     def name(self, name):
         self._name = name
     
-    #here's the pin getter
-    @property
-    def pin(self):
-        return self._pin
-    
-    @pin.setter
-    def pin(self, pin):
-        self._pin = pin
-    
     #here's the score getter
     @property
     def score(self):
         return self._score
     
+    # score setter
     @score.setter
     def score(self, score):
         self._score = score
-
+    
+    #here's the pin getter
+    @property
+    def pin(self):
+        return self._pin
+    
+    # pin setter
+    @pin.setter
+    def pin(self, pin):
+        self._pin = pin
+    
     # output content using str(object) in human readable form, uses getter
     # output content using json dumps, this is ready for API response
     def __str__(self):
@@ -82,20 +84,20 @@ class Wordle(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "pin": self.pin,
-            "score": self.score
+            "score": self.score,
+            "pin": self.pin
         }
 
     # CRUD update: updates user name, password, phone
     # returns self
-    def update(self, name="", pin="", score=""):
+    def update(self, name="", score="", pin=""):
         """only updates values with length"""
         if len(name) > 0:
             self.name = name
-        if len(pin) > 0:
-            self.pin = score
         if len(score) > 0:
             self.score = score
+        if len(pin) > 0:
+            self.pin = pin
         db.session.commit()
         return self
 
@@ -113,23 +115,33 @@ class Wordle(db.Model):
 # Builds working data for testing
 def initWordles():
     with app.app_context():
-         """Create database and tables"""
+        """Create database and tables"""
+        db.create_all()
+        # """Tester data for table
+        # w1 = Wordle(name="Thomas Edison", score=12, pin="qwerty123")
+        # w2 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
+        # w3 = Wordle(name="Karl Giant", score=10, pin="i_am-the-f4th3r")
         
-    db.create_all()
+        # wordles = [w1, w2, w3]
+        # #Builds sample wordles data
+        # for wordle in wordles:
+        #     try:
+        #         wordle.create()
+        #     except IntegrityError:
+        #         '''fails with bad or duplicate data'''
+        #         db.session.remove()
+        #         print(f"Records exist, duplicate data, or error: {wordle.name}")
+        # """
 
-        
-        
-        
-        
-    w1 = Wordle(name="John Mortensen", score=15, pin="codec0decod3bro")
-    w2 = Wordle(name="Karl Giant", score=10, pin="i_am-the-f4th3r")
-        
-    wordles = [w1, w2]
-        #Builds sample wordles data
-    for wordle in wordles:
-            try:
-                wordle.create()
-            except IntegrityError:
-                '''fails with bad or duplicate data'''
-                db.session.remove()
-                print(f"Records exist, duplicate data, or error: {wordle.name}")
+def deleteID(user_id):                
+    user = Wordle.query.get(user_id)
+
+    #user = Wordle.query.filter_by(name=name).first()
+    if user != None:
+        print("Query 1:", user)
+        db.session.delete(user)
+        db.session.commit() 
+        return True
+    else:
+        print("user "+str(user_id)+" not found")
+        return False
