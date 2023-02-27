@@ -9,6 +9,8 @@ from __init__ import app, db # Definitions initialization
 from model.snakes import initSnakes
 from model.wordles import initWordles
 from model.QATrivia import initQAs
+from model.scores import initScores
+
 
 
 # setup APIs
@@ -16,6 +18,8 @@ from model.QATrivia import initQAs
 from api.wordle import wordle_api
 from api.snake import snake_api
 from api.trivia import trivia_api
+from api.score import score_api
+
 
 #from api.user import user_api # Blueprint import api definition
 
@@ -27,6 +31,8 @@ from projects.projects import app_projects # Blueprint directory import projects
 app.register_blueprint(wordle_api)
 app.register_blueprint(snake_api)
 app.register_blueprint(trivia_api)
+app.register_blueprint(score_api)
+
 
 
 #app.register_blueprint(user_api) # register api routes
@@ -51,6 +57,8 @@ def activate_job():
     initSnakes()
     initWordles()
     initQAs()
+    initScores()
+   
   
 
 
