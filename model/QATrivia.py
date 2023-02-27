@@ -228,17 +228,20 @@ def initQAs():
         """Create database and tables"""
         db.create_all()
         """Tester data for table"""
-        q1 = QA(question='what is a cpu?', correctAnswer='central processing unit', incorrectAnswer1 = 'coolant protection unit', incorrectAnswer2 = 'unit processor', incorrectAnswer3 = 'man idk')
-        q2 = QA(question='what does html stand for?', correctAnswer='Hypertext Markup Language', incorrectAnswer1 = 'Hyperlink Maker Language', incorrectAnswer2 = 'Hyper Mail Markup', incorrectAnswer3 = 'Humphrey Man Table Lawnmower')
-        q3 = QA(question='what do we use AWS for?', correctAnswer='Deployment', incorrectAnswer1 = 'Fortnite', incorrectAnswer2 = 'Minecraft', incorrectAnswer3 = 'Java')
-        q4 = QA(question='how do we access linux on our machines?', correctAnswer='wsl', incorrectAnswer1 = 'pylance', incorrectAnswer2 = 'Mongodb', incorrectAnswer3 = 'ReactJS')
-        q5 = QA(question='who is our teacher?', correctAnswer='mr. yeung', incorrectAnswer1 = 'jmort223', incorrectAnswer2 = 'nathanial kim', incorrectAnswer3 = 'sabine')
-        q6 = QA(question='what does FUBAR stand for?', correctAnswer='[expletive] up beyond repair', incorrectAnswer1 = 'Flipped u before reprimanding', incorrectAnswer2 = 'Family Under Bad Analogies Reviewed', incorrectAnswer3 = 'huh?')
-        q7 = QA(question='how many sprints have we gone through this year?', correctAnswer='23', incorrectAnswer1 = '1', incorrectAnswer2 = '18', incorrectAnswer3 = '52')
-        q8 = QA(question='which is NOT an example of proper PII?', correctAnswer='Your car', incorrectAnswer1 = 'House address', incorrectAnswer2 = 'Bank codes', incorrectAnswer3 = 'Passwords')
-        q9 = QA(question='what do we use for our databases?', correctAnswer='SQLAlchemy', incorrectAnswer1 = 'XML', incorrectAnswer2 = 'MongoDB', incorrectAnswer3 = 'NodeJS')
-        q10 = QA(question='what would constitute as backend development?', correctAnswer='working with python to create things like a database.', incorrectAnswer1 = 'using HTML to create a webpage', incorrectAnswer2 = 'using CSS to style', incorrectAnswer3 = 'Deployment using a platform like AWS')
-        qAs = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+        q1 = QA(question='What is a CPU?', correctAnswer='central processing unit', incorrectAnswer1 = 'coolant protection unit', incorrectAnswer2 = 'unit processor', incorrectAnswer3 = 'man idk')
+        q2 = QA(question='What does HTML stand for?', correctAnswer='Hypertext Markup Language', incorrectAnswer1 = 'Hyperlink Maker Language', incorrectAnswer2 = 'Hyper Mail Markup', incorrectAnswer3 = 'Humphrey Man Table Lawnmower')
+        q3 = QA(question='What do we use AWS for?', correctAnswer='Deployment', incorrectAnswer1 = 'Fortnite', incorrectAnswer2 = 'Minecraft', incorrectAnswer3 = 'Java')
+        q4 = QA(question='How do we access Linux on our machines?', correctAnswer='wsl', incorrectAnswer1 = 'pylance', incorrectAnswer2 = 'Mongodb', incorrectAnswer3 = 'ReactJS')
+        q5 = QA(question='Who is our teacher?', correctAnswer='mr. yeung', incorrectAnswer1 = 'jmort223', incorrectAnswer2 = 'nathanial kim', incorrectAnswer3 = 'sabine')
+        q6 = QA(question='What does FUBAR stand for?', correctAnswer='Funked up beyond repair', incorrectAnswer1 = 'Flipped u before reprimanding', incorrectAnswer2 = 'Family Under Bad Analogies Reviewed', incorrectAnswer3 = 'Fun Ultra Boat Also Rollerblades')
+        q7 = QA(question='How many sprints have we gone through this year?', correctAnswer='23', incorrectAnswer1 = '1', incorrectAnswer2 = '18', incorrectAnswer3 = '52')
+        q8 = QA(question='Which is NOT an example of proper PII?', correctAnswer='Your car', incorrectAnswer1 = 'House address', incorrectAnswer2 = 'Bank codes', incorrectAnswer3 = 'Passwords')
+        q9 = QA(question='What do we use for our databases?', correctAnswer='SQLAlchemy', incorrectAnswer1 = 'XML', incorrectAnswer2 = 'MongoDB', incorrectAnswer3 = 'NodeJS')
+        q10 = QA(question='What would constitute as backend development?', correctAnswer='working with python to create things like a database.', incorrectAnswer1 = 'using HTML to create a webpage', incorrectAnswer2 = 'using CSS to style', incorrectAnswer3 = 'Deployment using a platform like AWS')
+        q11 = QA(question='What language is typically used in frontend development?', correctAnswer='HTML', incorrectAnswer1 = 'Python', incorrectAnswer2 = 'Assembly', incorrectAnswer3 = 'C-')
+        q12 = QA(question='What does AWS stand for?', correctAnswer='Amazon Web Services', incorrectAnswer1 = 'AWOOOOOOOGA', incorrectAnswer2 = 'Awsome Wall Seperator', incorrectAnswer3 = 'Amazonian World Services')
+        q13 = QA(question='Which of these are NOT one of the 4 roles assigned to us in CSP?', correctAnswer='Deployment Manager', incorrectAnswer1 = 'Frontend Developer', incorrectAnswer2 = 'Backend developer', incorrectAnswer3 = 'Scrum Master')
+        qAs = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13]
 
         """Builds sample user/note(s) data"""
         for qA in qAs:
